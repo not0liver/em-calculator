@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #202225;
+    font-family: "SUSE", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.nav {
+    width: 100%;
+    height: 70px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbox {
+    width: 250px;
+    height: 30px;
+    background-color: #4f545c;
+    border-radius: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 40px;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+}
+
+li a:hover {
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.maincontainer {
+    width: 100%;
+    height: calc(100dvb - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unitscontainer {
+    width: 80%;
+    height: 70dvb;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.units {
+    width: 450px;
+    height: 350px;
+    background-color: #181a1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.charts {
+    width: 450px;
+    height: 350px;
+    background-color: #181a1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.chartbackground {
+    background-color: #202225;
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    justify-content: space-evenly;
+}
+
+.barshadow {
+    width: 100%;
+    height: 50px;
+    background-color: #00000025;
+    border-radius: 4px;
+}
+
+.bar {
+    height: 50px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: white;
+    transition: width 1s ease-in-out;
+}
+
+.plantsoutput {
+    background-color: #202225;
+    width: 300px;
+    height: 80px;
+}
+
+.slider {
+    width: 99%; /* Make slider full width of the parent */
+    margin-top: 5px; /* Space between checkbox and slider */
+}
+
+/* Basic styles for the dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #414245;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #414245;
+    z-index: 1;
+    width: 220px;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+    scroll-behavior: smooth; 
+}
+
+/* Style the scrollbar */
+.dropdown-content::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-content label:hover {
+    background-color: #dddddd42;
+}
+
+.dropdown-content input {
+    margin-right: 10px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.slider {
+    width: 99%; /* Make slider full width of the parent */
+    margin-top: 5px; /* Space between checkbox and slider */
+}
+
+.input {
+    width: 99%;
+    outline: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button2 {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #414245;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #414245;
+    z-index: 1;
+    width: 220px;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+    scroll-behavior: smooth; 
+}
+
+/* Style the scrollbar */
+.dropdown-content2::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+}
+
+.dropdown-content2 label {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-content2 label:hover {
+    background-color: #dddddd42;
+}
+
+.dropdown-content2 input {
+    margin-right: 10px;
+}
+
+.dropdown-content2.show {
+    display: block;
+}
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #7a7a7a;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+body::-webkit-scrollbar {
+    width: 0em;
+    background-color: transparent;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+  
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+@media screen and (max-width: 450px) {
+    .chartbackground {
+        width: 250px; /* Change width */
+        height: 150px; /* Change height */
+        gap: 5px;
+    }
+    .plantsoutput {
+        width: 250px; /* Change width */
+        height: 100px; /* Change height */
+    }
+    .bar {
+        height: 40px;
+    }
+    .barshadow {
+        width: 100%;
+        height: 40px;
+    }
+}

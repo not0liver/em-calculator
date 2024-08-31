@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles/styles.css">
+    <title>EM Calculator</title>
+    <style>
+        .slider {
+            display: none;
+        }
+        .dropdown-item span {
+            display: none; 
+        }
+        .dropdown-item.show-value span {
+            display: inline; 
+        }
+        .dropdown-item2 span {
+            display: none;
+        }
+        .dropdown-item2.show-value span {
+            display: inline; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <div class="navbox">
+            <ul>
+                <li>
+                    <a href="https://discord.com/invite/umVfsDmmTU" target="_blank">Server</a>
+                </li>
+                <li>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1180944069212512366&permissions=2416338944&integration_type=0&scope=bot+applications.commands" target="_blank">Bot</a>
+                </li>
+                <li>
+                    <a href="">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>   
+
+    <div class="maincontainer">
+
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Developed and designed by: <a href="https://discord.com/users/1176933306923761665">chrisyeopsal</a><br>Formula provided by: <a href="https://discord.com/users/1212540294982271006">fortunadivvs</a></p>
+            </div>
+        </div> 
+
+        <div class="unitscontainer">
+
+            <div class="units">
+
+            <div class="dropdown2">
+                <div class="dropdown-button2" onclick="toggleDropdown2()">Storage Units</div>
+                <div class="dropdown-content2" id="dropdownContent2">
+                    <div class="dropdown-item2">
+                        <label><input type="checkbox" id="checkbox25MWh" value="10%" onchange="updateTransformerLoss(this)"> Hydrogen 25 MWh</label>
+                        <input type="text" id="input25MWh" class="input" value="10">
+                    </div>
+                    <div class="dropdown-item2">
+                        <label><input type="checkbox" id="checkbox100MWh" value="9%" onchange="updateTransformerLoss(this)"> Hydrogen 100 MWh</label>
+                        <input type="text" id="input100MWh" class="input" value="9">
+                    </div>
+                    <div class="dropdown-item2">
+                        <label><input type="checkbox" id="checkbox500MWh" value="14%" onchange="updateTransformerLoss(this)"> Hydrogen 500 MWh</label>
+                        <input type="text" id="input500MWh" class="input" value="14">
+                    </div>
+                    <div class="dropdown-item2">
+                        <label><input type="checkbox" id="checkbox25GWh" value="18%" onchange="updateTransformerLoss(this)"> Hydrogen 2.5 GWh</label>
+                        <input type="text" id="input25GWh" class="input" value="18">
+                    </div>
+                    <div class="dropdown-item2">
+                        <label><input type="checkbox" id="checkbox10GWh" value="12%" onchange="updateTransformerLoss(this)"> Hydrogen 10 GWh</label>
+                        <input type="text" id="input10GWh" class="input" value="12">
+                    </div>
+                </div>
+            </div>             
+
+            <div class="dropdown">
+                <div class="dropdown-button" onclick="toggleDropdown()">Production Units</div>
+                <div class="dropdown-content" id="dropdownContent">
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox1" onchange="toggleSlider(this, 'slider1', 'value1')" value="1.5"> O-150-1 Oil <span style="font-weight: bold;" id="value1">6</span></label>
+                        <input type="range" id="slider1" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox2" onchange="toggleSlider(this, 'slider2', 'value2')" value="2"> O-200-X Oil <span style="font-weight: bold;" id="value2">6</span></label>
+                        <input type="range" id="slider2" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox3" onchange="toggleSlider(this, 'slider3', 'value3')" value="75"> C-750 Inland Coal <span style="font-weight: bold;" id="value3">6</span></label>
+                        <input type="range" id="slider3" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox4" onchange="toggleSlider(this, 'slider4', 'value4')" value="100"> C-1000-2 Low-E Gas <span style="font-weight: bold;" id="value4">6</span></label>
+                        <input type="range" id="slider4" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox5" onchange="toggleSlider(this, 'slider5', 'value5')" value="100"> 2-Gen O-1000-2 Low-E Oil <span style="font-weight: bold;" id="value5">6</span></label>
+                        <input type="range" id="slider5" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox6" onchange="toggleSlider(this, 'slider6', 'value6')" value="120"> O-1000-2 Oil <span style="font-weight: bold;" id="value6">6</span></label>
+                        <input type="range" id="slider6" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox7" onchange="toggleSlider(this, 'slider7', 'value7')" value="150"> O-1000-2 Low-E Oil <span style="font-weight: bold;" id="value7">6</span></label>
+                        <input type="range" id="slider7" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox8" onchange="toggleSlider(this, 'slider8', 'value8')" value="200"> C-1000-1 Coal <span style="font-weight: bold;" id="value8">6</span></label>
+                        <input type="range" id="slider8" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox9" onchange="toggleSlider(this, 'slider9', 'value9')" value="1000"> 1-Gen C-25000 H Coal <span style="font-weight: bold;" id="value9">6</span></label>
+                        <input type="range" id="slider9" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox10" onchange="toggleSlider(this, 'slider10', 'value10')" value="1000"> 1 Reactor Core <span style="font-weight: bold;" id="value10">6</span></label>
+                        <input type="range" id="slider10" class="slider" min="1" max="12" value="1">
+                    </div>
+                    <div class="dropdown-item">
+                        <label><input type="checkbox" id="checkbox11" onchange="toggleSlider(this, 'slider11', 'value11')" value="1500"> 2 Reactor Core <span style="font-weight: bold;" id="value11">6</span></label>
+                        <input type="range" id="slider11" class="slider" min="1" max="12" value="1">
+                    </div>
+                </div>
+            </div>    
+
+            </div>
+
+            <div class="charts">
+                <div class="chartbackground">
+                    <div class="barshadow">
+                        <div id="transformerLossBar" class="bar" style="width: 0%; background-color: #ffa60066;">Transformer Loss: 0%</div>
+                    </div>
+                    <div class="barshadow">
+                        <div id="fossilOutputBar" class="bar" style="width: 0%; background-color: #0df34370;">Fossil Input: 0.00 MW</div>
+                    </div>
+                    <div class="barshadow">
+                        <div id="chargePowerBar" class="bar" style="width: 0%; background-color: #0080807e;">Charge Power: 0.00 MW</div>
+                    </div>
+                </div>
+                <div class="plantsoutput">
+                    <p class="outp" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Complete charge in:</p>
+                    <p class="totalplants" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total plants: 0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/src/js/sel.js"></script>
+    <script src="/src/js/ca.js"></script>
+    
+</body>
+</html>
